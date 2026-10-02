@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SmartHash | Student Record Intelligence</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            ⚡ SmartHash
+        </div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#search">Search</a>
+            <a href="#algorithm">Algorithm</a>
+            <a href="#compare">Compare</a>
+        </div>
+
+       <button class="presentation-btn" onclick="togglePresentation()">
+    🎤 Presentation Mode
+      </button>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <p class="tagline">ALGORITHMIC STUDENT RECORD SYSTEM</p>
+
+            <h1>
+                Find Any Student
+                <span>Instantly.</span>
+            </h1>
+
+            <p class="hero-text">
+                SmartHash uses Hashing and Separate Chaining
+                to provide fast and efficient student record lookup.
+            </p>
+
+            <div class="hero-buttons">
+                <button class="primary-btn" onclick="startSearch()">
+                    🔍 Search Student
+                </button>
+
+                <button class="secondary-btn" onclick="showAlgorithm()">
+                    🧠 Explore Algorithm
+                </button>
+            </div>
+
+        </div>
+
+
+        <!-- Algorithm Flow -->
+        <div class="flow-card">
+
+            <h3>⚡ Smart Search Pipeline</h3>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    <b>Roll No</b>
+                    <small>112</small>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="flow-box">
+                    <b>Hash</b>
+                    <small>112 % 10</small>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="flow-box">
+                    <b>Index</b>
+                    <small>2</small>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="flow-box">
+                    <b>Record</b>
+                    <small>Found ✓</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- ADD STUDENT SECTION -->
+
+<section class="add-section">
+
+    <p class="tagline">RECORD MANAGEMENT</p>
+
+    <h2>Add Student Record</h2>
+
+    <p class="section-text">
+        Add a new student and SmartHash will automatically
+        calculate the hash index.
+    </p>
+
+    <div class="add-form">
+
+        <input
+            type="number"
+            id="newRoll"
+            placeholder="Roll Number"
+        >
+
+        <input
+            type="text"
+            id="newName"
+            placeholder="Student Name"
+        >
+
+        <input
+            type="text"
+            id="newBranch"
+            placeholder="Branch"
+        >
+
+        <button class="primary-btn" onclick="addStudent()">
+            ➕ Add Student
+        </button>
+
+    </div>
+
+    <div id="addResult" class="search-result">
+        Enter student details above.
+    </div>
+
+</section>
+    <!-- SEARCH SECTION -->
+
+<section id="search" class="search-section">
+
+    <p class="tagline">LIVE STUDENT LOOKUP</p>
+
+    <h2>Search Student Record</h2>
+
+    <p class="section-text">
+        Enter a roll number to locate the student using hashing.
+    </p>
+
+    <div class="search-box">
+
+        <input
+            type="number"
+            id="rollInput"
+            placeholder="Enter Roll Number"
+        >
+
+        <button onclick="searchStudent()">
+            🔍 Search
+        </button>
+
+    </div>
+
+    <div id="searchResult" class="search-result">
+        Enter a roll number to begin.
+    </div>
+    <div class="explain-search">
+
+    <h3>🧠 Explain My Search</h3>
+
+    <div id="searchPipeline" class="pipeline">
+        <div>Enter Roll Number</div>
+    </div>
+
+</div>
+
+</section>
+<!-- ALGORITHM COMPARISON -->
+
+<section id="compare" class="compare-section">
+
+    <p class="tagline">DAA PERFORMANCE LAB</p>
+
+    <h2>Algorithm Comparison</h2>
+
+    <p class="section-text">
+        Compare how different searching algorithms handle student records.
+    </p>
+
+    <button class="primary-btn" onclick="runComparison()">
+        🚀 Run Comparison
+    </button>
+
+    <div class="comparison-grid">
+
+        <div class="algorithm-card">
+            <h3>Linear Search</h3>
+            <div class="complexity">O(n)</div>
+            <p id="linearResult">Waiting...</p>
+        </div>
+
+        <div class="algorithm-card">
+            <h3>Binary Search</h3>
+            <div class="complexity">O(log n)</div>
+            <p id="binaryResult">Waiting...</p>
+        </div>
+
+        <div class="algorithm-card featured">
+            <h3>⚡ Hashing</h3>
+            <div class="complexity">O(1) Average</div>
+            <p id="hashResult">Waiting...</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- HASH TABLE -->
+
+<section class="hash-section">
+
+    <p class="tagline">LIVE HASH TABLE</p>
+
+    <h2>Hash Buckets</h2>
+
+    <div id="hashTable" class="hash-table"></div>
+
+</section>
+
+
+    <!-- Statistics -->
+    <section class="stats">
+
+        <div class="stat-card">
+            <h2>O(1)</h2>
+            <p>Average Search</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>10</h2>
+            <p>Hash Buckets</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>∞</h2>
+            <p>Records Supported</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>✓</h2>
+            <p>Collision Handling</p>
+        </div>
+
+    </section>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
